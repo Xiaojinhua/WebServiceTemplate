@@ -36,9 +36,9 @@
 sub-common -> sub-dal -> sub-core -> sub-webapp -> sub-test
 
 ## Mybatis自动生成说明
-1. 生成Mybatis类的程序基于ant，需要提前安装好ant环境。
+生成Mybatis类的程序基于ant，需要提前安装好ant环境。
 1. 使用`extra/sql`文件夹内的sql文件生成mysql数据表，或自行在mysql中创建表定义。
-1. 修改`extra/MyBatisGenerator/generatorConfig.xml`配置文件中的**<table>**标签，设置要生成哪些表的类文件。
+1. 修改`extra/MyBatisGenerator/generatorConfig.xml`配置文件中的`<table>`标签，设置要生成哪些表的类文件。
 1. 在`extra/MyBatisGenerator`文件夹下执行 `ant`命令。
 1. 类文件及XML文件在`sub-dal`工程内自动生成。
 
