@@ -10,20 +10,8 @@
 - Ant 1.9.7+(生成Mybatis类文件时需要)
 - Mysql 5.7 +
 
-
-## 打包命令及配置文件说明
-打包命令执行时，会自动加载相应配置文件中的配置项。
-
-| 环境 | 打包命令 | 使用的配置文件 |
-|--------------|--------------------|--------------------|
-| Dev（开发环境） | gradle packageDevWar | configs/dev/config.properties |
-| Prod（正式环境） | gradle packageProdWar | configs/prod/config.properties |
-| Test（测试环境）  | gradle packageTestWar | configs/test/config.properties |
-**configs/common.properties为通用配置文件，其中的配置项在每个环境中都会生效**
-
-
 ## 子工程说明
-| 子工程名 | 打包命令 | 使用的配置文件 |
+| 子工程名 | 说明 |
 |--------------|--------------------|
 | sub-common | 基础类，工具类的存放工程 |
 | sub-dal | 数据库访问相关 |
@@ -34,6 +22,16 @@
 
 ## 子工程依赖关系
 sub-common -> sub-dal -> sub-core -> sub-webapp -> sub-test
+
+## 打包命令及配置文件说明
+打包命令执行时，会自动加载相应配置文件中的配置项。
+
+| 环境 | 打包命令 | 使用的配置文件 |
+|--------------|--------------------|--------------------|
+| Dev（开发环境） | gradle packageDevWar | configs/dev/config.properties |
+| Prod（正式环境） | gradle packageProdWar | configs/prod/config.properties |
+| Test（测试环境）  | gradle packageTestWar | configs/test/config.properties |
+**`configs/common.properties`为通用配置文件，其中的配置项在每个环境中都会生效**
 
 ## Mybatis自动生成说明
 生成Mybatis类的程序基于ant，需要提前安装好ant环境。
