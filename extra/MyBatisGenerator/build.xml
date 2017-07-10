@@ -1,10 +1,10 @@
 <project default="genfiles" basedir=".">
      <property name="module" value="sub-dal"/>
-     <property name="generated.source.dir" value="${basedir}/../sub-dal/src/main/java" />
-     <property name="generated.resources.dir" value="${basedir}/../sub-dal/src/main/resources" />
+     <property name="generated.source.dir" value="${basedir}/../../sub-dal/src/main/java" />
+     <property name="generated.resources.dir" value="${basedir}/../../sub-dal/src/main/resources" />
      <property name="tables" value=""/>
      <target name="check-params">
-    	<available property="module.exists" file="${basedir}/../sub-dal/src/main/java"/>
+    	<available property="module.exists" file="${basedir}/../../sub-dal/src/main/java"/>
      </target>
      <target name="echo-params">
     	<echo>module name : ${module}</echo>
