@@ -15,4 +15,4 @@ out/
 */.settings
 .settings/
 docker/output/
-src/
+/src/
