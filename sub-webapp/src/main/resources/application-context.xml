@@ -11,7 +11,7 @@
 
     <import resource="classpath:application-common.xml"/>
     <import resource="classpath:application-core.xml"/>
-    <import resource="classpath:application-dao.xml"/>
+    <import resource="classpath:application-dal.xml"/>
     <context:annotation-config/>
     
     <bean id="loginFilter" class="com.istuary.webserviceTemplate.api.webapp.filter.LoginFilter">

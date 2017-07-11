@@ -14,5 +14,5 @@ jettyRun {
 }
 
 war {
-    archiveName 'webserviceTemplate-api.war'
+    archiveName 'webserviceTemplate.war'
 }
