@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'jetty'
+//apply plugin: 'jetty'
 apply plugin: 'war'
 
 dependencies {
@@ -9,9 +9,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-jettyRun {
-    contextPath = ""
-}
+//jettyRun {
+//    contextPath = ""
+//}
 
 war {
     archiveName 'webserviceTemplate.war'
