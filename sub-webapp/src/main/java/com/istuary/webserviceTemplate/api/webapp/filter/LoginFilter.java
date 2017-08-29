@@ -41,6 +41,8 @@ public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
+        String[] urls = getAuthenticationPassUrl();
+        Boolean a = getAuthentication();
         if (null != getAuthenticationPassUrl() && getAuthentication()) {
 
             if (!(servletRequest instanceof HttpServletRequest) || !(servletResponse instanceof HttpServletResponse)) {

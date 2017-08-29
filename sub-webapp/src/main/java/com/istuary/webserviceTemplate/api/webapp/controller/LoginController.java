@@ -7,9 +7,11 @@ import com.istuary.webserviceTemplate.api.core.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,19 +33,25 @@ public class LoginController {
     @RequestMapping(value = "/auth/login")
     @ResponseBody
     public DefaultServiceResult login(@RequestBody String data, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //public DefaultServiceResult login(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     	HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(60 * 60 * 18);
 		
 		try {
 
-			JSONObject requestBodyJson = JSONObject.parseObject(data);
-			String name = requestBodyJson.getString("name");
-			String pwd = requestBodyJson.getString("pwd");
-
+			//JSONObject requestBodyJson = JSONObject.parseObject(data);
+			//String name = requestBodyJson.getString("name");
+			//String pwd = requestBodyJson.getString("pwd");
+			String name = request.getParameter("name");
+			String pwd = request.getParameter("pwd");
+			//HttpRequest httpRequest = (HttpRequest)request;
+			
 			if (name != null && pwd != null ) {
-				UserInfo userInfo = loginService.getUserByName(name);
-				if (userInfo != null) {
+			    String password = loginService.getPwdByName(name);
+				UserInfo userInfo = loginService.getUserById(1);
+				String password1 =userInfo.password;
+				if (userInfo != null && userInfo.password.equals(pwd)) {
 					session.setAttribute("user", userInfo);
 					DefaultServiceResult defaultServiceResult = new DefaultServiceResult(true);
 					JSONObject jsonData = new JSONObject();

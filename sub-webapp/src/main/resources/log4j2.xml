@@ -6,8 +6,8 @@
             <PatternLayout pattern="[%-5p] [%d{HH:mm:ss}] %c - %m%n"/>
         </console>
 
-        <RollingFile name="RollingFileDebug" fileName="/opt/webservice_template/log/debug.log"
-                     filePattern="/opt/webservice_template/log/debug.log.%d{yyyy-MM-dd}">
+        <RollingFile name="RollingFileDebug" fileName="/Users/xiaojinhua/myWork/WebserviceTemplate/log/debug.log"
+                     filePattern="/Users/xiaojinhua/myWork/WebserviceTemplate/log/debug.log.%d{yyyy-MM-dd}">
             <Filters>
                 <ThresholdFilter level="DEBUG"/>
                 <ThresholdFilter level="INFO" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -19,8 +19,8 @@
             <DefaultRolloverStrategy max="10" />
         </RollingFile>
 
-        <RollingFile name="RollingFileInfo" fileName="/opt/webservice_template/log/info.log"
-                     filePattern="/opt/webservice_template/log/info.log.%d{yyyy-MM-dd}">
+        <RollingFile name="RollingFileInfo" fileName="/Users/xiaojinhua/myWork/WebserviceTemplate/log/info.log"
+                     filePattern="/Users/xiaojinhua/myWork/WebserviceTemplate/log/info.log.%d{yyyy-MM-dd}">
             <Filters>
                 <ThresholdFilter level="INFO"/>
                 <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -32,8 +32,8 @@
             <DefaultRolloverStrategy max="10" />
         </RollingFile>
 
-        <RollingFile name="RollingFileWarn" fileName="/opt/webservice_template/log/warn.log"
-                     filePattern="/opt/webservice_template/log/warn.log.%d{yyyy-MM-dd}">
+        <RollingFile name="RollingFileWarn" fileName="/Users/xiaojinhua/myWork/WebserviceTemplate/log/warn.log"
+                     filePattern="/Users/xiaojinhua/myWork/WebserviceTemplate/log/warn.log.%d{yyyy-MM-dd}">
             <Filters>
                 <ThresholdFilter level="WARN"/>
                 <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -45,8 +45,8 @@
             <DefaultRolloverStrategy max="10" />
         </RollingFile>
 
-        <RollingFile name="RollingFileError" fileName="/opt/webservice_template/log/error.log"
-                     filePattern="/opt/webservice_template/log/error.log.%d{yyyy-MM-dd}">
+        <RollingFile name="RollingFileError" fileName="/Users/xiaojinhua/myWork/WebserviceTemplate/log/error.log"
+                     filePattern="/Users/xiaojinhua/myWork/WebserviceTemplate/log/error.log.%d{yyyy-MM-dd}">
             <ThresholdFilter level="ERROR"/>
             <PatternLayout pattern="[%-5p] [%d{HH:mm:ss}] %c - %m%n"/>
             <Policies>
@@ -55,8 +55,8 @@
             <DefaultRolloverStrategy max="10" />
         </RollingFile>
 
-        <RollingFile name="RollingFileCustom" fileName="/opt/webservice_template/log/time.log"
-                     filePattern="/opt/webservice_template/log/time.log.%d{yyyy-MM-dd}">
+        <RollingFile name="RollingFileCustom" fileName="/Users/xiaojinhua/myWork/WebserviceTemplate/log/time.log"
+                     filePattern="/Users/xiaojinhua/myWork/WebserviceTemplate/log/time.log.%d{yyyy-MM-dd}">
             <ThresholdFilter level="INFO"/>
             <PatternLayout pattern="[%-5p] [%d{HH:mm:ss}] %c - %m%n"/>
             <Policies>
@@ -73,7 +73,7 @@
             <appender-ref ref="RollingFileCustom"/>
         </logger>
         <root level="info">
-            <!--<appender-ref ref="Console"/>-->
+            <appender-ref ref="Console"/>
             <appender-ref ref="RollingFileDebug"/>
             <appender-ref ref="RollingFileInfo"/>
             <appender-ref ref="RollingFileWarn"/>

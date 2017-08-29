@@ -10,4 +10,6 @@ public interface LoginService {
     public String getPwdByName(String name);
 
     UserInfo getUserByName(String name);
+    
+    UserInfo getUserById(int id);
 }
