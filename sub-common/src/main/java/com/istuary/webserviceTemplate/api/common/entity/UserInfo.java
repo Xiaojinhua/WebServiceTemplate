@@ -1,6 +1,12 @@
 package com.istuary.webserviceTemplate.api.common.entity;
 
-public class UserInfo {
+import com.alibaba.fastjson.JSONObject;
+
+import java.io.Serializable;
+
+public class UserInfo implements Serializable
+{
+	private static final long serialVersionUID = 1L;
 
 	public String name;
 	
@@ -61,5 +67,10 @@ public class UserInfo {
 
 	public void setOpers(String opers) {
 		this.opers = opers;
+	}
+	
+	@Override
+	public String toString(){
+		return JSONObject.toJSONString(this);
 	}
 }

@@ -16,6 +16,7 @@
             <map>
                 <entry key="LOGIN_AUTHENTICATION_SWITCH" value="@login.authentication.switch@"/>
                 <entry key="LOGIN_AUTHENTICATION_PASS_URL" value="@login.authentication.pass.url@"/>
+                <entry key="REDIS_HOST" value="@redis.maxIdle@"/>
             </map>
         </constructor-arg>
     </bean>

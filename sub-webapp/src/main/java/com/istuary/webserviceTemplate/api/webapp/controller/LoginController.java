@@ -3,10 +3,12 @@ package com.istuary.webserviceTemplate.api.webapp.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.istuary.webserviceTemplate.api.common.entity.DefaultServiceResult;
 import com.istuary.webserviceTemplate.api.common.entity.UserInfo;
+import com.istuary.webserviceTemplate.api.core.service.HeartbeatService;
 import com.istuary.webserviceTemplate.api.core.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Created by zhenhua.li on 17/3/6.
@@ -29,6 +32,8 @@ public class LoginController {
     
     @Autowired
     private LoginService loginService;
+    //@Autowired
+	//private RedisTemplate<String,Object> redisTemplate;
 
     @RequestMapping(value = "/auth/login")
     @ResponseBody
@@ -45,12 +50,11 @@ public class LoginController {
 			//String pwd = requestBodyJson.getString("pwd");
 			String name = request.getParameter("name");
 			String pwd = request.getParameter("pwd");
-			//HttpRequest httpRequest = (HttpRequest)request;
 			
 			if (name != null && pwd != null ) {
 			    String password = loginService.getPwdByName(name);
 				UserInfo userInfo = loginService.getUserById(1);
-				String password1 =userInfo.password;
+				//UserInfo res = (UserInfo) redisTemplate.opsForValue().get("user");
 				if (userInfo != null && userInfo.password.equals(pwd)) {
 					session.setAttribute("user", userInfo);
 					DefaultServiceResult defaultServiceResult = new DefaultServiceResult(true);

@@ -1,9 +1,11 @@
 package com.istuary.webserviceTemplate.api.webapp.controller;
 
 import com.istuary.webserviceTemplate.api.common.entity.DefaultServiceResult;
+import com.istuary.webserviceTemplate.api.common.helper.RedisHelper;
 import com.istuary.webserviceTemplate.api.core.service.HeartbeatService;
 import com.istuary.webserviceTemplate.api.dal.generated.DemoDO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,14 +23,15 @@ public class HeartbeatAPIController {
 
     @Autowired
     private HeartbeatService heartbeatService;
-
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
 
     @RequestMapping(value = "/heartbeat")
     @ResponseBody
     public String getHeartbeat() {
         String content = "is working";
         content = heartbeatService.getContent();
-
+        Object oo= redisTemplate.opsForValue().get("test");
         return content;
     }
 

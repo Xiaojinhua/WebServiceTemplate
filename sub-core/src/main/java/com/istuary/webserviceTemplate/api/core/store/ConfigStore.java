@@ -20,7 +20,8 @@ public class ConfigStore {
 
     private String[] configFromSystemConfig = {
         ConfigConstant.LOGIN_AUTHENTICATION_SWITCH,
-        ConfigConstant.LOGIN_AUTHENTICATION_PASS_URL
+        ConfigConstant.LOGIN_AUTHENTICATION_PASS_URL,
+        ConfigConstant.REDIS_HOST,
     };
 
     public ConfigStore(HashMap<String, Object> configMap) throws Exception {

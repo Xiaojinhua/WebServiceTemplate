@@ -23,4 +23,8 @@ public class DemoSchedualed {
     public void pollingJob() {
         this.obtainAllStatus();
     }
+    
+    public void testJob(){
+        System.out.println("test");
+    }
 }

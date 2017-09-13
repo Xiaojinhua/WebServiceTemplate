@@ -23,6 +23,7 @@ public class HeartbeatServiceImpl implements HeartbeatService {
 
     @Override
     public String getContent() {
+        System.out.println("working");
         return "working";
     }
 
